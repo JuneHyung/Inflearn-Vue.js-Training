@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div v-for="(ask, index) in this.$store.state.ask" :key="index">{{ ask.title }}</div>
+        <p>애스크</p>
+        <p v-for="(ask, index) in this.$store.state.ask" :key="index">
+            <a :href="ask.url">{{ ask.title }}</a>
+            <small>{{ ask.time_ago }} , {{ ask.domain }}</small>
+        </p>
     </div>
 </template>
 
@@ -13,22 +17,22 @@ export default {
             // asks: [],
         };
     },
-    computed: {
-        // #3.
-        // ...mapGetters({
-        //     // 오른쪽이 vuex에서 사용한거.
-        //     fetchedAsk: 'fetchedAsk',
-        // }),
-        // #2.
-        // ...mapState({
-        //     ask: (state) => state.ask,
-        // }),
-        // #1.
-        // ask(){
-        //     return this.$store.state.ask;
-        // }
-    },
-    cerated() {
+    // computed: {
+    // #3.
+    // ...mapGetters({
+    //     // 오른쪽이 vuex에서 사용한거.
+    //     fetchedAsk: 'fetchedAsk',
+    // }),
+    // #2.
+    // ...mapState({
+    //     ask: (state) => state.ask,
+    // }),
+    // #1.
+    // ask(){
+    //     return this.$store.state.ask;
+    // }
+    // },
+    created() {
         // fetchAskList()
         //     .then((response) => (this.ask = response.data))
         //     .catch((error) => {

@@ -1,6 +1,12 @@
 <template>
     <div>
-        <div v-for="(user, index) in this.$store.state.news" :key="index">{{ user.title }}</div>
+        <!-- <div>
+            {{ user.title }}
+        </div> -->
+        <p v-for="(item, index) in this.$store.state.news" :key="index">
+            <a :href="item.url">{{ item.title }}</a>
+            <small>{{ item.time_ago }} by {{ item.user }}</small>
+        </p>
     </div>
 </template>
 
