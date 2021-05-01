@@ -15,10 +15,16 @@ function fetchAskList() {
     return axios.get(`${config.baseUrl}ask/1.json`);
 }
 
-
 function fetchJobsList() {
     // console.log('잡왔나?');
     return axios.get(`${config.baseUrl}jobs/1.json`);
 }
 
-export { fetchNewsList, fetchAskList, fetchJobsList}
+function fetchUserInfo(username) {
+    return axios.get(`${config.baseUrl}user/${username}.json`);
+}
+
+function fetchCommentItem(id) {
+    return axios.get(`${config.baseUrl}item/${id}.json`);
+}
+export { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchCommentItem}

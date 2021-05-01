@@ -1,8 +1,8 @@
 <template>
     <div>
-        <p>애스크</p>
         <p v-for="(ask, index) in this.$store.state.ask" :key="index">
-            <a :href="ask.url">{{ ask.title }}</a>
+            <!-- <a :href="ask.url">{{ ask.title }}</a> -->
+            <router-link :to="`/item/${ask.id}`">{{ ask.title }}</router-link>
             <small>{{ ask.time_ago }} , {{ ask.domain }}</small>
         </p>
     </div>
