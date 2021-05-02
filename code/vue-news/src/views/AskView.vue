@@ -1,16 +1,13 @@
 <template>
     <div>
-        <p v-for="(ask, index) in this.$store.state.ask" :key="index">
-            <!-- <a :href="ask.url">{{ ask.title }}</a> -->
-            <router-link :to="`/item/${ask.id}`">{{ ask.title }}</router-link>
-            <small>{{ ask.time_ago }} , {{ ask.domain }}</small>
-        </p>
+        <list-item></list-item>
     </div>
 </template>
 
 <script>
 // import { fetchAskList } from '../api/index.js';
 // import { mapGetters } from 'vuex';
+import ListItem from '../components/ListItem.vue';
 export default {
     data() {
         return {
@@ -32,15 +29,16 @@ export default {
     //     return this.$store.state.ask;
     // }
     // },
-    created() {
-        // fetchAskList()
-        //     .then((response) => (this.ask = response.data))
-        //     .catch((error) => {
-        //         console.log(error);
-        //     });
-        this.$store.dispatch('FETCH_ASK');
+    components: {
+        ListItem,
     },
+    // created() {
+    //     // fetchAskList()
+    //     //     .then((response) => (this.ask = response.data))
+    //     //     .catch((error) => {
+    //     //         console.log(error);
+    //     //     });
+    //     this.$store.dispatch('FETCH_ASK');
+    // },
 };
 </script>
-
-<style></style>
